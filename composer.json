@@ -1,0 +1,24 @@
+{
+    "name": "iakio/dbunit-callback-dataset",
+    "type": "library",
+    "keywords": [
+        "database",
+        "dbunit",
+        "testing"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ISHIDA Akio",
+            "email": "iakio.monospacenet@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/dbunit": "1.3.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "iakio\\dataset\\": "src/"
+        }
+    }
+}
