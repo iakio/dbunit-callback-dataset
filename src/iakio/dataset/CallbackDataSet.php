@@ -56,10 +56,10 @@ class CallbackDataSet extends PHPUnit_Extensions_Database_DataSet_AbstractDataSe
     /**
      * @return PHPUnit_Extensions_Database_DataSet_ITableIterator
      */
-    protected function createIterator($reserved = FALSE)
+    protected function createIterator($reverse = FALSE)
     {
         return new \PHPUnit_Extensions_Database_DataSet_DefaultTableIterator(
-            $this->tables, $reserved
+            $this->tables, $reverse
         );
     }
 }
