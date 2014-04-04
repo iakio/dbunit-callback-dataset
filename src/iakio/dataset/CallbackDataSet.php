@@ -24,7 +24,7 @@ class CallbackDataSet extends PHPUnit_Extensions_Database_DataSet_AbstractDataSe
     /**
      * @param $classname_or_instance mixed
      */
-    public function __construct($classname_or_instance)
+    public function __construct($classname_or_instance, $table_names = array())
     {
         $reflection_class = new \ReflectionClass($classname_or_instance);
         if (is_object($classname_or_instance)) {
@@ -32,7 +32,14 @@ class CallbackDataSet extends PHPUnit_Extensions_Database_DataSet_AbstractDataSe
         } else {
             $instance = $reflection_class->newInstance();
         }
-        $methods = $reflection_class->getMethods(\ReflectionMethod::IS_PUBLIC);
+        if (count($table_names) === 0) {
+            $methods = $reflection_class->getMethods(\ReflectionMethod::IS_PUBLIC);
+        } else {
+            $methods = array();
+            foreach ($table_names as $table) {
+                $methods[] = $reflection_class->getMethod($table);
+            }
+        }
 
         foreach ($methods as $method) {
             if ($method->isConstructor()) {

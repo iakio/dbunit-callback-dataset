@@ -1,6 +1,7 @@
 {
     "name": "iakio/dbunit-callback-dataset",
     "type": "library",
+    "description": "Define DbUnit Dataset by array, iterator or generator.",
     "keywords": [
         "database",
         "dbunit",
